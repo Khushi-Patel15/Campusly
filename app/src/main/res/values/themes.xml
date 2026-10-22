@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Campusly" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/neon_lime</item>
+        <item name="colorPrimaryDark">@color/campus_black</item>
+        <item name="colorAccent">@color/neon_lime</item>
+
+        <item name="android:windowBackground">@color/campus_black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/campus_black</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/campus_black</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+    </style>
+</resources>

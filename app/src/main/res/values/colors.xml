@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="campus_black">#000000</color>
+    <color name="campus_surface">#101010</color>
+    <color name="campus_surface_light">#181818</color>
+
+    <color name="neon_lime">#C6FF4A</color>
+    <color name="neon_lime_dark">#9BCF24</color>
+
+    <color name="neon_red">#FF3040</color>
+    <color name="burgundy_red">#8B1E2D</color>
+
+    <color name="neon_green">#66FF99</color>
+
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#A8A8A8</color>
+    <color name="text_muted">#6F6F6F</color>
+
+    <color name="border_dark">#292929</color>
+
+</resources>

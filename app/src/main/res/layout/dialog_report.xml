@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    android:paddingTop="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/report_question"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
+
+    <RadioGroup
+        android:id="@+id/reasonGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/reasonSpam"
+            style="@style/CategoryOption"
+            android:text="@string/report_reason_spam" />
+
+        <RadioButton
+            android:id="@+id/reasonHarassment"
+            style="@style/CategoryOption"
+            android:text="@string/report_reason_harassment" />
+
+        <RadioButton
+            android:id="@+id/reasonInappropriate"
+            style="@style/CategoryOption"
+            android:text="@string/report_reason_inappropriate" />
+
+        <RadioButton
+            android:id="@+id/reasonOther"
+            style="@style/CategoryOption"
+            android:text="@string/report_reason_other" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/reportDescriptionInput"
+        style="@style/CampusInput"
+        android:hint="@string/report_details_hint"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine|textCapSentences"
+        android:maxLength="300"
+        android:maxLines="4" />
+
+</LinearLayout>

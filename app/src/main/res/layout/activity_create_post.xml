@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/campus_black"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/ScreenTitle"
+            android:layout_marginTop="12dp"
+            android:text="@string/create_post_title" />
+
+        <EditText
+            android:id="@+id/postInput"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_post_card"
+            android:gravity="top|start"
+            android:hint="@string/create_post_hint"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine|textCapSentences"
+            android:maxLength="500"
+            android:padding="16dp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_muted"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_post_category"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <RadioGroup
+            android:id="@+id/categoryGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/optionEvents"
+                style="@style/CategoryOption"
+                android:text="@string/category_events" />
+
+            <RadioButton
+                android:id="@+id/optionSports"
+                style="@style/CategoryOption"
+                android:text="@string/category_sports" />
+
+            <RadioButton
+                android:id="@+id/optionEducation"
+                style="@style/CategoryOption"
+                android:text="@string/category_education" />
+
+            <RadioButton
+                android:id="@+id/optionGossip"
+                style="@style/CategoryOption"
+                android:text="@string/category_gossip" />
+
+            <!-- Only shown to admins; the security rules also block it for students -->
+            <RadioButton
+                android:id="@+id/optionAnnouncements"
+                style="@style/CategoryOption"
+                android:text="@string/category_announcements"
+                android:visibility="gone" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/anonymousNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_offline_banner"
+            android:padding="10dp"
+            android:text="@string/gossip_anonymous_note"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/postSubmitButton"
+            style="@style/PrimaryButton"
+            android:text="@string/create_post_submit" />
+
+        <ProgressBar
+            android:id="@+id/createPostProgress"
+            style="@style/LoadingSpinner" />
+
+    </LinearLayout>
+
+</ScrollView>

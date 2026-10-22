@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Campusly</string>
+    <string name="tagline">Your Campus. Your Community. Your Voice.</string>
+
+    <string name="notifications">Notifications</string>
+
+    <string name="category_all">All Posts</string>
+    <string name="category_events">Events</string>
+    <string name="category_sports">Sports</string>
+    <string name="category_education">Education</string>
+    <string name="category_gossip">Gossip</string>
+    <string name="category_announcements">Announcements</string>
+
+    <string name="action_like">♡ Like</string>
+    <string name="action_comment">💬 Comment</string>
+    <string name="action_share">↗ Share</string>
+    <string name="more_options">More options</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_explore">Explore</string>
+    <string name="nav_create">Create</string>
+    <string name="nav_notifications">Alerts</string>
+    <string name="nav_profile">Profile</string>
+
+    <string name="explore_title">Explore</string>
+    <string name="explore_subtitle">Trending on campus · most liked recent posts</string>
+    <string name="explore_search_hint">Search posts, names or categories</string>
+    <string name="explore_no_results">No posts match your search</string>
+
+    <string name="create_post_title">Create Post</string>
+    <string name="create_post_hint">What\'s happening on campus?</string>
+    <string name="create_post_submit">Post</string>
+    <string name="create_post_category">Category</string>
+    <string name="create_post_pick_category">Pick a category for your post</string>
+    <string name="create_post_success">Posted!</string>
+    <string name="create_post_failed">Couldn\'t post. Please try again.</string>
+    <string name="create_post_empty">Write something before posting</string>
+
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_subtitle">Likes and comments on your posts · long-press to delete</string>
+    <string name="notifications_empty">No notifications yet.\nWhen someone likes or comments on your posts, you\'ll see it here.</string>
+    <string name="notifications_error">Couldn\'t load notifications</string>
+    <string name="notification_like">%1$s liked your post</string>
+    <string name="notification_comment">%1$s commented on your post</string>
+    <string name="notification_delete_title">Delete this notification?</string>
+
+    <string name="profile_loading">Loading…</string>
+    <string name="profile_no_bio">No bio yet.</string>
+    <string name="profile_missing">Profile details not found.</string>
+    <string name="profile_edit">Edit Profile</string>
+    <string name="profile_logout">Log Out</string>
+
+    <!-- Authentication -->
+    <string name="login_title">Welcome back</string>
+    <string name="login_subtitle">Log in with your college email</string>
+    <string name="login_button">Log In</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="go_to_signup">New here? Create an account</string>
+
+    <string name="signup_title">Create account</string>
+    <string name="signup_subtitle">Only college email addresses (%1$s) can join</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="go_to_login">Already have an account? Log in</string>
+
+    <string name="hint_email">College email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm password</string>
+    <string name="hint_name">Full name</string>
+    <string name="hint_department">Department (e.g. Computer Engineering)</string>
+    <string name="hint_year">Year (e.g. 2nd Year)</string>
+
+    <string name="verify_title">Verify your email</string>
+    <string name="verify_message">We sent a verification link to %1$s.\n\nOpen it (check your spam folder too), then come back and tap the button below.</string>
+    <string name="verify_check_button">I\'ve verified my email</string>
+    <string name="verify_resend_button">Resend email</string>
+    <string name="verify_use_other_account">Use a different account</string>
+    <string name="verify_not_yet">Not verified yet. Check your inbox and spam folder.</string>
+    <string name="verify_resent">Verification email sent again</string>
+    <string name="verify_resend_failed">Couldn\'t resend. Wait a minute and try again.</string>
+
+    <string name="reset_email_sent">If an account exists for that email, a password reset link has been sent.</string>
+
+    <string name="error_college_email">Use your college email (ending in %1$s)</string>
+    <string name="error_password_required">Enter your password</string>
+    <string name="error_password_short">Password must be at least %1$d characters</string>
+    <string name="error_password_mismatch">Passwords don\'t match</string>
+    <string name="error_password_weak">Password is too weak</string>
+    <string name="error_field_required">Required</string>
+    <string name="error_email_in_use">An account with this email already exists</string>
+    <string name="error_login_failed">Incorrect email or password</string>
+    <string name="error_signup_failed">Sign up failed. Please try again.</string>
+    <string name="error_network">No internet connection</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_profile_save">Account created, but your profile details couldn\'t be saved.</string>
+    <string name="error_profile_load">Couldn\'t load your profile</string>
+
+    <!-- Feed -->
+    <string name="feed_empty">No posts here yet.\nBe the first to share something!</string>
+    <string name="feed_error">Couldn\'t load posts. Check your connection and try again.</string>
+    <string name="post_meta">%1$s · %2$s</string>
+    <string name="post_time_now">Just now</string>
+    <string name="delete_post_title">Delete post?</string>
+    <string name="delete_post_message">This can\'t be undone.</string>
+    <string name="delete_post_confirm">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="post_deleted">Post deleted</string>
+    <string name="post_delete_failed">Couldn\'t delete the post</string>
+    <string name="share_post_chooser">Share post via</string>
+    <string name="share_post_text">%1$s on Campusly:\n\n%2$s</string>
+    <string name="like_count">♡ %1$d</string>
+    <string name="like_count_liked">♥ %1$d</string>
+    <string name="like_failed">Couldn\'t update your like</string>
+    <string name="post_not_found">This post was deleted</string>
+
+    <!-- Comments -->
+    <string name="comments_title">Comments</string>
+    <string name="comments_title_count">Comments (%1$d)</string>
+    <string name="comments_empty">No comments yet. Start the conversation!</string>
+    <string name="comments_error">Couldn\'t load comments</string>
+    <string name="comment_hint">Write a comment…</string>
+    <string name="comment_send">Send</string>
+    <string name="comment_failed">Couldn\'t send your comment</string>
+    <string name="comment_delete">Delete</string>
+    <string name="delete_comment_title">Delete comment?</string>
+    <string name="comment_delete_failed">Couldn\'t delete the comment</string>
+
+    <!-- Offline -->
+    <string name="offline_banner">You\'re offline · showing saved posts</string>
+    <string name="feed_offline_empty">You\'re offline and there are no saved posts yet.\nConnect to the internet to load the feed.</string>
+    <string name="draft_saved">Saved as draft</string>
+    <string name="draft_restored">Draft restored</string>
+    <string name="draft_saved_offline">You\'re offline, so your post was saved as a draft. Open Create again to post it once you\'re back online.</string>
+
+    <!-- Weather widget -->
+    <string name="weather_loading">Loading campus weather…</string>
+    <string name="weather_summary">%1$s %2$d°C · %3$s · %4$s</string>
+    <string name="weather_error">Weather unavailable · tap to retry</string>
+    <string name="weather_attribution">Weather data by Open-Meteo.com</string>
+    <string name="weather_clear">Clear sky</string>
+    <string name="weather_partly_cloudy">Partly cloudy</string>
+    <string name="weather_cloudy">Cloudy</string>
+    <string name="weather_fog">Foggy</string>
+    <string name="weather_drizzle">Drizzle</string>
+    <string name="weather_rain">Rain</string>
+    <string name="weather_snow">Snow</string>
+    <string name="weather_showers">Rain showers</string>
+    <string name="weather_thunderstorm">Thunderstorm</string>
+    <string name="weather_unknown">Current weather</string>
+
+    <!-- Post menu, reporting -->
+    <string name="post_option_delete">Delete</string>
+    <string name="post_option_report">Report</string>
+    <string name="post_option_admin_remove">Remove post (admin)</string>
+    <string name="report_title">Report post</string>
+    <string name="report_question">Why are you reporting this post?</string>
+    <string name="report_reason_spam">Spam</string>
+    <string name="report_reason_harassment">Harassment or bullying</string>
+    <string name="report_reason_inappropriate">Inappropriate content</string>
+    <string name="report_reason_other">Something else</string>
+    <string name="report_details_hint">Add details (optional)</string>
+    <string name="report_submit">Report</string>
+    <string name="report_pick_reason">Pick a reason first</string>
+    <string name="report_sent">Thanks. An admin will review this post.</string>
+    <string name="report_failed">Couldn\'t send the report. You may have already reported this post.</string>
+    <string name="report_offline">You\'re offline. Try reporting again once you\'re connected.</string>
+
+    <!-- Admin dashboard -->
+    <string name="admin_open_dashboard">Admin Dashboard</string>
+    <string name="admin_title">Admin Dashboard</string>
+    <string name="admin_subtitle">Review reports and keep Campusly safe</string>
+    <string name="admin_only">Only admins can open this screen</string>
+    <string name="admin_stat_open">Open reports</string>
+    <string name="admin_stat_resolved">Resolved reports</string>
+    <string name="admin_stat_posts">Total posts</string>
+    <string name="admin_stat_users">Total users</string>
+    <string name="admin_open_reports">Open reports</string>
+    <string name="admin_no_reports">No open reports. All clear!</string>
+    <string name="admin_reports_error">Couldn\'t load reports</string>
+    <string name="report_header">%1$s · %2$s</string>
+    <string name="report_action_view">View post</string>
+    <string name="report_action_dismiss">Dismiss</string>
+    <string name="report_action_remove">Remove post</string>
+    <string name="admin_report_dismissed">Report dismissed</string>
+    <string name="admin_remove_title">Remove this post?</string>
+    <string name="admin_remove_message">The post will be deleted for everyone and all its open reports will be closed.</string>
+    <string name="admin_action_failed">That didn\'t work. Check your connection and try again.</string>
+
+    <!-- Edit profile -->
+    <string name="edit_profile_title">Edit profile</string>
+    <string name="edit_profile_subtitle">Your email can\'t be changed because it\'s used to log in</string>
+    <string name="hint_bio">Bio (optional, up to 160 characters)</string>
+    <string name="edit_profile_save">Save changes</string>
+    <string name="edit_profile_saved">Profile updated</string>
+    <string name="edit_profile_failed">Couldn\'t save your profile. Please try again.</string>
+
+    <!-- Anonymous gossip -->
+    <string name="gossip_anonymous_note">Gossip is posted anonymously: other students see \"Anonymous\" instead of your name. Admins can still see who posted, to keep Campusly safe. Comments you add are not anonymous.</string>
+</resources>
