@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- These exact values are saved to Firestore and checked by firestore.rules.
+         If you add or rename one, change the list in the rules too. -->
+    <string-array name="schools">
+        <item>STME</item>
+        <item>SOC</item>
+        <item>SPTM</item>
+        <item>SBM</item>
+        <item>SOL</item>
+    </string-array>
+
+    <string-array name="years">
+        <item>Year 1</item>
+        <item>Year 2</item>
+        <item>Year 3</item>
+        <item>Year 4</item>
+        <item>Year 5</item>
+    </string-array>
+</resources>
