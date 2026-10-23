@@ -23,7 +23,6 @@
 
         <activity android:name=".activities.LoginActivity" android:exported="false" />
         <activity android:name=".activities.SignupActivity" android:exported="false" />
-        <activity android:name=".activities.VerifyEmailActivity" android:exported="false" />
         <activity android:name=".activities.MainActivity" android:exported="false" />
         <activity android:name=".activities.ExploreActivity" android:exported="false" />
         <activity android:name=".activities.CreatePostActivity" android:exported="false" />

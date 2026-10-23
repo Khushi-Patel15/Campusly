@@ -68,14 +68,6 @@
     <string name="hint_confirm_password">Confirm password</string>
     <string name="hint_name">Full name</string>
 
-    <string name="verify_title">Verify your email</string>
-    <string name="verify_message">We sent a verification link to %1$s.\n\nOpen it (check your spam folder too), then come back and tap the button below.</string>
-    <string name="verify_check_button">I\'ve verified my email</string>
-    <string name="verify_resend_button">Resend email</string>
-    <string name="verify_use_other_account">Use a different account</string>
-    <string name="verify_not_yet">Not verified yet. Check your inbox and spam folder.</string>
-    <string name="verify_resent">Verification email sent again</string>
-    <string name="verify_resend_failed">Couldn\'t resend. Wait a minute and try again.</string>
 
     <string name="reset_email_sent">If an account exists for that email, a password reset link has been sent.</string>
 

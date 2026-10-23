@@ -94,7 +94,6 @@ public class SignupActivity extends AppCompatActivity {
                 return;
             }
 
-            user.sendEmailVerification();
             saveProfile(user, name, department, year);
         });
     }
@@ -120,7 +119,7 @@ public class SignupActivity extends AppCompatActivity {
                         // The login account exists even if this failed, so still continue.
                         showToast(R.string.error_profile_save);
                     }
-                    NavigationUtils.openAndClear(this, VerifyEmailActivity.class);
+                    NavigationUtils.openAndClear(this, MainActivity.class);
                 });
     }
 

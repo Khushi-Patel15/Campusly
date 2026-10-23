@@ -25,8 +25,8 @@ public class SplashActivity extends AppCompatActivity {
             return;
         }
 
-        // reload() fetches the latest verified status. If it fails because we're
-        // offline, we fall back to the last known status instead of blocking the app.
+        // reload() checks the account still exists. If it fails because we're
+        // offline, we carry on with the saved login instead of blocking the app.
         user.reload().addOnCompleteListener(reloadTask -> {
             if (!reloadTask.isSuccessful()
                     && reloadTask.getException() instanceof FirebaseAuthInvalidUserException) {
@@ -35,16 +35,7 @@ public class SplashActivity extends AppCompatActivity {
                 NavigationUtils.openAndClear(this, LoginActivity.class);
                 return;
             }
-
-            if (!user.isEmailVerified()) {
-                NavigationUtils.openAndClear(this, VerifyEmailActivity.class);
-                return;
-            }
-
-            // Firestore rules read "email_verified" from the login token, which only
-            // updates when the token is refreshed, so force a refresh here.
-            user.getIdToken(true).addOnCompleteListener(tokenTask ->
-                    NavigationUtils.openAndClear(this, MainActivity.class));
+            NavigationUtils.openAndClear(this, MainActivity.class);
         });
     }
 }

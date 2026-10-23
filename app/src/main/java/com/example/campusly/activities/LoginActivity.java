@@ -13,7 +13,6 @@ import com.example.campusly.utils.AppConfig;
 import com.example.campusly.utils.NavigationUtils;
 import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Locale;
 
@@ -60,10 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            FirebaseUser user = auth.getCurrentUser();
-            boolean verified = user != null && user.isEmailVerified();
-            NavigationUtils.openAndClear(this,
-                    verified ? MainActivity.class : VerifyEmailActivity.class);
+            NavigationUtils.openAndClear(this, MainActivity.class);
         });
     }
 
