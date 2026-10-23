@@ -67,8 +67,6 @@
     <string name="hint_password">Password</string>
     <string name="hint_confirm_password">Confirm password</string>
     <string name="hint_name">Full name</string>
-    <string name="hint_department">Department (e.g. Computer Engineering)</string>
-    <string name="hint_year">Year (e.g. 2nd Year)</string>
 
     <string name="verify_title">Verify your email</string>
     <string name="verify_message">We sent a verification link to %1$s.\n\nOpen it (check your spam folder too), then come back and tap the button below.</string>
@@ -195,5 +193,16 @@
     <string name="edit_profile_failed">Couldn\'t save your profile. Please try again.</string>
 
     <!-- Anonymous gossip -->
-    <string name="gossip_anonymous_note">Gossip is posted anonymously: other students see \"Anonymous\" instead of your name. Admins can still see who posted, to keep Campusly safe. Comments you add are not anonymous.</string>
+    <string name="gossip_anonymous_note">Gossip is posted anonymously: other students see \"Anonymous\" instead of your name, and comments on it are anonymous too. Admins can still see who posted, to keep Campusly safe.</string>
+
+    <!-- School / year dropdowns -->
+    <string name="label_school">School</string>
+    <string name="label_year">Year</string>
+    <string name="select_school">Select your school</string>
+    <string name="select_year">Select your year</string>
+    <string name="error_pick_school">Please select your school</string>
+    <string name="error_pick_year">Please select your year</string>
+
+    <!-- Anonymous comments -->
+    <string name="comment_hint_anonymous">Comment anonymously…</string>
 </resources>

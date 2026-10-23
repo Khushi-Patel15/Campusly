@@ -28,21 +28,21 @@
             android:inputType="textPersonName|textCapWords"
             android:maxLength="50" />
 
-        <EditText
-            android:id="@+id/departmentInput"
-            style="@style/CampusInput"
-            android:hint="@string/hint_department"
-            android:importantForAutofill="no"
-            android:inputType="textCapWords"
-            android:maxLength="60" />
+        <TextView
+            style="@style/FieldLabel"
+            android:text="@string/label_school" />
 
-        <EditText
-            android:id="@+id/yearInput"
-            style="@style/CampusInput"
-            android:hint="@string/hint_year"
-            android:importantForAutofill="no"
-            android:inputType="textCapWords"
-            android:maxLength="30" />
+        <Spinner
+            android:id="@+id/schoolSpinner"
+            style="@style/CampusSpinner" />
+
+        <TextView
+            style="@style/FieldLabel"
+            android:text="@string/label_year" />
+
+        <Spinner
+            android:id="@+id/yearSpinner"
+            style="@style/CampusSpinner" />
 
         <EditText
             android:id="@+id/bioInput"

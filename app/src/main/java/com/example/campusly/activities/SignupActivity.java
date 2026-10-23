@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.campusly.R;
 import com.example.campusly.databinding.ActivitySignupBinding;
 import com.example.campusly.utils.AppConfig;
+import com.example.campusly.utils.DropdownUtils;
 import com.example.campusly.utils.NavigationUtils;
 import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,6 +38,8 @@ public class SignupActivity extends AppCompatActivity {
 
         binding.signupSubtitleText.setText(
                 getString(R.string.signup_subtitle, AppConfig.COLLEGE_EMAIL_DOMAIN));
+        DropdownUtils.setUp(this, binding.schoolSpinner, R.array.schools, R.string.select_school);
+        DropdownUtils.setUp(this, binding.yearSpinner, R.array.years, R.string.select_year);
         binding.signupButton.setOnClickListener(v -> attemptSignup());
         binding.goToLoginText.setOnClickListener(v -> finish());
     }
@@ -44,8 +47,8 @@ public class SignupActivity extends AppCompatActivity {
     private void attemptSignup() {
         String name = binding.nameInput.getText().toString().trim();
         String email = binding.emailInput.getText().toString().trim().toLowerCase(Locale.ROOT);
-        String department = binding.departmentInput.getText().toString().trim();
-        String year = binding.yearInput.getText().toString().trim();
+        String department = DropdownUtils.getSelected(binding.schoolSpinner);
+        String year = DropdownUtils.getSelected(binding.yearSpinner);
         String password = binding.passwordInput.getText().toString();
         String confirmPassword = binding.confirmPasswordInput.getText().toString();
 
@@ -58,12 +61,12 @@ public class SignupActivity extends AppCompatActivity {
                     getString(R.string.error_college_email, AppConfig.COLLEGE_EMAIL_DOMAIN));
             return;
         }
-        if (department.isEmpty()) {
-            binding.departmentInput.setError(getString(R.string.error_field_required));
+        if (department == null) {
+            showToast(R.string.error_pick_school);
             return;
         }
-        if (year.isEmpty()) {
-            binding.yearInput.setError(getString(R.string.error_field_required));
+        if (year == null) {
+            showToast(R.string.error_pick_year);
             return;
         }
         if (password.length() < AppConfig.MIN_PASSWORD_LENGTH) {

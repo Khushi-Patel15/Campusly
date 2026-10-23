@@ -25,7 +25,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.ListenerRegistration;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PostDetailsActivity extends AppCompatActivity
         implements PostAdapter.Listener, CommentAdapter.Listener {
@@ -46,6 +48,7 @@ public class PostDetailsActivity extends AppCompatActivity
     private boolean isAdmin = false;
     // The latest copy of the post, needed to notify its author about comments.
     private Post currentPost;
+    private final Set<String> checkedAnonymousComments = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +136,8 @@ public class PostDetailsActivity extends AppCompatActivity
             if (post == null) return;
 
             currentPost = post;
+            binding.commentInput.setHint(post.isAnonymous()
+                    ? R.string.comment_hint_anonymous : R.string.comment_hint);
             binding.postCard.getRoot().setVisibility(View.VISIBLE);
             PostAdapter.bindPost(binding.postCard, post, userId, this);
         });
@@ -158,6 +163,7 @@ public class PostDetailsActivity extends AppCompatActivity
             }
 
             commentAdapter.setComments(comments);
+            findMyAnonymousComments(comments);
             binding.commentsTitleText.setText(
                     getString(R.string.comments_title_count, comments.size()));
             if (comments.isEmpty()) {
@@ -166,6 +172,21 @@ public class PostDetailsActivity extends AppCompatActivity
                 binding.commentsEmptyText.setVisibility(View.GONE);
             }
         });
+    }
+
+    // Anonymous comments don't say who wrote them, so ask each one's private
+    // author document (only readable by its author or an admin). Each comment
+    // is only checked once while this screen is open.
+    private void findMyAnonymousComments(List<Comment> comments) {
+        for (Comment comment : comments) {
+            String id = comment.getCommentId();
+            if (!comment.isAnonymous() || !checkedAnonymousComments.add(id)) continue;
+            repository.isMyAnonymousComment(postId, id, userId, isMine -> {
+                if (isMine) {
+                    commentAdapter.markAsMine(id);
+                }
+            });
+        }
     }
 
     private void showCommentsMessage(int messageRes) {
@@ -226,7 +247,7 @@ public class PostDetailsActivity extends AppCompatActivity
     public void onDeleteComment(Comment comment) {
         UiUtils.confirm(this, R.string.delete_comment_title, R.string.delete_post_message,
                 R.string.delete_post_confirm, () ->
-                        repository.deleteComment(postId, comment.getCommentId())
+                        repository.deleteComment(postId, comment)
                                 .addOnFailureListener(e -> {
                                     Log.e(TAG, "Deleting comment failed", e);
                                     UiUtils.toast(this, R.string.comment_delete_failed);

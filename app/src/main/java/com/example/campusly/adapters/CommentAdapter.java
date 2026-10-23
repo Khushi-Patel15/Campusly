@@ -13,7 +13,9 @@ import com.example.campusly.models.Comment;
 import com.example.campusly.utils.TimeUtils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
 
@@ -25,6 +27,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     private final String currentUserId;
     private final Listener listener;
     private boolean isAdmin = false;
+    // Ids of anonymous comments that belong to this user (checked separately,
+    // since the comment itself doesn't say who wrote it).
+    private final Set<String> myAnonymousCommentIds = new HashSet<>();
 
     public CommentAdapter(String currentUserId, Listener listener) {
         this.currentUserId = currentUserId;
@@ -35,6 +40,12 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     public void setAdmin(boolean admin) {
         isAdmin = admin;
         notifyDataSetChanged();
+    }
+
+    public void markAsMine(String commentId) {
+        if (myAnonymousCommentIds.add(commentId)) {
+            notifyDataSetChanged();
+        }
     }
 
     public void setComments(List<Comment> newComments) {
@@ -61,7 +72,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         binding.commentTimeText.setText(TimeUtils.relative(context, comment.getCreatedAt()));
         binding.commentContentText.setText(comment.getContent());
 
-        boolean canDelete = isAdmin || currentUserId.equals(comment.getAuthorId());
+        boolean canDelete = isAdmin
+                || currentUserId.equals(comment.getAuthorId())
+                || myAnonymousCommentIds.contains(comment.getCommentId());
         binding.commentDeleteText.setVisibility(canDelete ? View.VISIBLE : View.GONE);
         binding.commentDeleteText.setOnClickListener(v -> listener.onDeleteComment(comment));
     }

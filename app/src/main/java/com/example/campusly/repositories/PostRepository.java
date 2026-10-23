@@ -1,5 +1,6 @@
 package com.example.campusly.repositories;
 
+import com.example.campusly.models.Comment;
 import com.example.campusly.models.Post;
 import com.example.campusly.utils.Categories;
 import com.google.android.gms.tasks.Task;
@@ -130,21 +131,50 @@ public class PostRepository {
         return batch.commit();
     }
 
-    // Commenting also notifies the post's author.
-    public Task<DocumentReference> addComment(Post post, String userId,
-                                              String authorName, String content) {
+    // Commenting also notifies the post's author. On an anonymous (gossip)
+    // post the comment is anonymous too: it says "Anonymous" and the real
+    // author goes into a private document, written in the same batch.
+    public Task<Void> addComment(Post post, String userId, String authorName, String content) {
+        boolean anonymous = post.isAnonymous();
+        DocumentReference ref = postRef(post.getPostId()).collection(COMMENTS).document();
+
         Map<String, Object> comment = new HashMap<>();
-        comment.put("authorId", userId);
-        comment.put("authorName", authorName);
+        comment.put("authorId", anonymous ? Post.ANONYMOUS_ID : userId);
+        comment.put("authorName", anonymous ? Post.ANONYMOUS_NAME : authorName);
         comment.put("content", content);
         comment.put("createdAt", FieldValue.serverTimestamp());
-        return postRef(post.getPostId()).collection(COMMENTS).add(comment)
-                .addOnSuccessListener(ref ->
+
+        WriteBatch batch = db.batch();
+        batch.set(ref, comment);
+        if (anonymous) {
+            Map<String, Object> author = new HashMap<>();
+            author.put("uid", userId);
+            batch.set(ref.collection(PRIVATE).document("author"), author);
+        }
+        return batch.commit()
+                .addOnSuccessListener(unused ->
                         new NotificationRepository().notifyComment(post, userId, content));
     }
 
-    public Task<Void> deleteComment(String postId, String commentId) {
-        return postRef(postId).collection(COMMENTS).document(commentId).delete();
+    private DocumentReference commentRef(String postId, String commentId) {
+        return postRef(postId).collection(COMMENTS).document(commentId);
+    }
+
+    public void isMyAnonymousComment(String postId, String commentId, String userId,
+                                     Callback<Boolean> callback) {
+        commentRef(postId, commentId).collection(PRIVATE).document("author").get()
+                .addOnSuccessListener(doc -> callback.onResult(userId.equals(doc.getString("uid"))))
+                .addOnFailureListener(e -> callback.onResult(false));
+    }
+
+    public Task<Void> deleteComment(String postId, Comment comment) {
+        DocumentReference ref = commentRef(postId, comment.getCommentId());
+        WriteBatch batch = db.batch();
+        batch.delete(ref);
+        if (comment.isAnonymous()) {
+            batch.delete(ref.collection(PRIVATE).document("author"));
+        }
+        return batch.commit();
     }
 
     // The report's id is "{postId}_{userId}", so the same person can't report

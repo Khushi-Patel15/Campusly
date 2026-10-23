@@ -35,19 +35,21 @@
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress" />
 
-        <EditText
-            android:id="@+id/departmentInput"
-            style="@style/CampusInput"
-            android:hint="@string/hint_department"
-            android:importantForAutofill="no"
-            android:inputType="textCapWords" />
+        <TextView
+            style="@style/FieldLabel"
+            android:text="@string/label_school" />
 
-        <EditText
-            android:id="@+id/yearInput"
-            style="@style/CampusInput"
-            android:hint="@string/hint_year"
-            android:importantForAutofill="no"
-            android:inputType="textCapWords" />
+        <Spinner
+            android:id="@+id/schoolSpinner"
+            style="@style/CampusSpinner" />
+
+        <TextView
+            style="@style/FieldLabel"
+            android:text="@string/label_year" />
+
+        <Spinner
+            android:id="@+id/yearSpinner"
+            style="@style/CampusSpinner" />
 
         <EditText
             android:id="@+id/passwordInput"

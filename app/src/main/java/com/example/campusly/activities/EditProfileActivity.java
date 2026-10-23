@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.campusly.R;
 import com.example.campusly.databinding.ActivityEditProfileBinding;
 import com.example.campusly.repositories.PostRepository;
+import com.example.campusly.utils.DropdownUtils;
 import com.example.campusly.utils.NavigationUtils;
 import com.example.campusly.utils.NetworkUtils;
 import com.example.campusly.utils.UiUtils;
@@ -19,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-// Lets users change their name, department, year and bio. Email can't be
+// Lets users change their name, school, year and bio. Email can't be
 // changed here (the security rules block it), because it's tied to login.
 // Posts made earlier keep the name they were posted with.
 public class EditProfileActivity extends AppCompatActivity {
@@ -43,6 +44,8 @@ public class EditProfileActivity extends AppCompatActivity {
         }
         userId = user.getUid();
 
+        DropdownUtils.setUp(this, binding.schoolSpinner, R.array.schools, R.string.select_school);
+        DropdownUtils.setUp(this, binding.yearSpinner, R.array.years, R.string.select_year);
         binding.saveProfileButton.setOnClickListener(v -> save());
         loadCurrentValues();
     }
@@ -52,8 +55,8 @@ public class EditProfileActivity extends AppCompatActivity {
         repository.getUserProfile(userId)
                 .addOnSuccessListener(doc -> {
                     binding.nameInput.setText(doc.getString("name"));
-                    binding.departmentInput.setText(doc.getString("department"));
-                    binding.yearInput.setText(doc.getString("year"));
+                    DropdownUtils.select(binding.schoolSpinner, doc.getString("department"));
+                    DropdownUtils.select(binding.yearSpinner, doc.getString("year"));
                     binding.bioInput.setText(doc.getString("bio"));
                     setLoading(false);
                 })
@@ -65,20 +68,20 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private void save() {
         String name = binding.nameInput.getText().toString().trim();
-        String department = binding.departmentInput.getText().toString().trim();
-        String year = binding.yearInput.getText().toString().trim();
+        String department = DropdownUtils.getSelected(binding.schoolSpinner);
+        String year = DropdownUtils.getSelected(binding.yearSpinner);
         String bio = binding.bioInput.getText().toString().trim();
 
         if (name.isEmpty()) {
             binding.nameInput.setError(getString(R.string.error_field_required));
             return;
         }
-        if (department.isEmpty()) {
-            binding.departmentInput.setError(getString(R.string.error_field_required));
+        if (department == null) {
+            UiUtils.toast(this, R.string.error_pick_school);
             return;
         }
-        if (year.isEmpty()) {
-            binding.yearInput.setError(getString(R.string.error_field_required));
+        if (year == null) {
+            UiUtils.toast(this, R.string.error_pick_year);
             return;
         }
         // An offline save would only finish once the internet returns, so the
