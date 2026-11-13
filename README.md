@@ -22,6 +22,16 @@ Campusly is a social app for NMIMS Indore students. You can share campus news, e
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/fig1.png" width="250">
+  &nbsp;&nbsp;
+  <img src="screenshots/fig2.png" width="250">
+</p>
+
+---
+
 ## Tech stack
 
 | Part | Technology |
