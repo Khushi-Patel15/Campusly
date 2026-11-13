@@ -10,7 +10,7 @@
     <string name="category_sports">Sports</string>
     <string name="category_education">Education</string>
     <string name="category_gossip">Gossip</string>
-    <string name="category_announcements">Announcements</string>
+    <string name="category_announcements">Others</string>
 
     <string name="action_like">♡ Like</string>
     <string name="action_comment">💬 Comment</string>
@@ -197,4 +197,8 @@
 
     <!-- Anonymous comments -->
     <string name="comment_hint_anonymous">Comment anonymously…</string>
+
+    <!-- Shooting-star notification popup -->
+    <string name="popup_many_title">%1$d new notifications</string>
+    <string name="popup_many_preview">Tap to see them</string>
 </resources>

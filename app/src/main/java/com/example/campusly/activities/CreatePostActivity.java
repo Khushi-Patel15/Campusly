@@ -7,9 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.campusly.R;
-import com.example.campusly.database.DraftEntity;
 import com.example.campusly.databinding.ActivityCreatePostBinding;
-import com.example.campusly.repositories.AdminRepository;
 import com.example.campusly.repositories.LocalRepository;
 import com.example.campusly.repositories.PostRepository;
 import com.example.campusly.utils.Categories;
@@ -51,9 +49,6 @@ public class CreatePostActivity extends AppCompatActivity {
                         checkedId == R.id.optionGossip ? View.VISIBLE : View.GONE));
         loadAuthorName();
         restoreDraft();
-
-        new AdminRepository().checkIsAdmin(user.getUid(), isAdmin ->
-                binding.optionAnnouncements.setVisibility(isAdmin ? View.VISIBLE : View.GONE));
     }
 
     // Leaving the screen (Back, Home button, another app) keeps the text as a

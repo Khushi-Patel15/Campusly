@@ -67,12 +67,10 @@
                 style="@style/CategoryOption"
                 android:text="@string/category_gossip" />
 
-            <!-- Only shown to admins; the security rules also block it for students -->
             <RadioButton
                 android:id="@+id/optionAnnouncements"
                 style="@style/CategoryOption"
-                android:text="@string/category_announcements"
-                android:visibility="gone" />
+                android:text="@string/category_announcements" />
 
         </RadioGroup>
 
